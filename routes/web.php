@@ -28,4 +28,8 @@ Route::middleware([
     route::prefix('Niveaux')->group(function(){
         route::get('/' , 'App\Http\Controllers\NiveauxController@index')->name('niveaux');
     });
+    route::prefix('settings')->group(function(){
+        route::get('/', 'App\Http\Controllers\SettingController@index')->name('settings');
+        route::get('/create-school-years', 'App\Http\Controllers\SettingController@create')->name('create-school-years');
+    });
 });
