@@ -5,6 +5,6 @@
         </h2>
     </x-slot>
     <div class="py-2 px-10">
-        @livewire('/')
+        @livewire('create-new-y')
     </div>
 </x-app-layout>
