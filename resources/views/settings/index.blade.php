@@ -4,7 +4,12 @@
             {{ __('Configuration') }}
         </h2>
     </x-slot>
-    <div class="py-2 px-10">
-        @livewire('config')
+
+    <div class="py-6 px-12">
+        
+          
+                <livewire:settings/>
+
+        
     </div>
 </x-app-layout>

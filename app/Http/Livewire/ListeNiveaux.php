@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class Config extends Component
+class ListeNiveaux extends Component
 {
     public function render()
     {
-        return view('livewire.config');
+        return view('livewire.liste-niveaux');
     }
 }

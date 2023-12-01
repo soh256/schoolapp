@@ -17,13 +17,13 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('niveaux') }}" :active="request()->routeIs('niveaux')">
+                    <x-nav-link href="{{ route('niveau') }}" :active="request()->routeIs('niveau')">
                         {{ __('Niveaux') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('settings') }}" :active="request()->routeIs('settings')">
-                        {{ __('Année scolaire') }}
+                        {{ __('Année Scolaire') }}
                     </x-nav-link>
                 </div>
             </div>

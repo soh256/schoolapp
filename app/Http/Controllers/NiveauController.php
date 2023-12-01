@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class NiveauxController extends Controller
+class NiveauController extends Controller
 {
     public function index(){
-        return view ('niveaux.list');
+        return view ('niveaux.List');
     }
 }

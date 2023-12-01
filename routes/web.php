@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,11 +26,12 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    route::prefix('Niveaux')->group(function(){
-        route::get('/' , 'App\Http\Controllers\NiveauxController@index')->name('niveaux');
+    Route::prefix('Niveau')->group(function (){
+        route::get('/' , 'App\Http\Controllers\NiveauController@index')->name('niveau');
     });
-    route::prefix('settings')->group(function(){
-        route::get('/', 'App\Http\Controllers\SettingController@index')->name('settings');
-        route::get('/create-school-years', 'App\Http\Controllers\SettingController@create')->name('create-school-years');
+    Route::prefix('settings')->group(function (){
+        route::get('/' , 'App\Http\Controllers\SchoolYearController@index')->name('settings');
+        route::get('/create_school_year' , 'App\Http\Controllers\SchoolYearController@create_school_year')->name('create_school_year');
     });
+
 });
