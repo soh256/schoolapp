@@ -3,8 +3,12 @@
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-8">
 
             <div class="flex justify-between">
-                <h4><b>liste des années scolaires</b></h4>
-                <a href="{{route('create_school_year')}}" class="bg-blue-500 rounded-md p-2 text-sm text-white">nouvelle année scolaire</a>
+                <div>
+                    <input type="text" class="block mt-1 rounded-md border-gray-300 w-full" placeholder="Rechercher..." wire:model='recherche'>
+                </div>
+                <div>
+                    <a href="{{route('create_school_year')}}" class="bg-blue-500 rounded-md p-2 text-sm text-white">nouvelle année scolaire</a>
+                </div>
             </div>
 
             <div class="flex flex-col">
@@ -21,50 +25,66 @@
                                 <thead class="border-b bg-gray-300">
                                     <tr> 
                                         <th class="text-sm font-meduim text-gray-900 px-6 py-6">
-                                            Libellé
+                                            Id
                                         </th>
                                         <th class="text-sm font-meduim text-gray-900 px-6 py-6">
-                                            Libellé
+                                            Année scolaire
                                         </th>
                                         <th class="text-sm font-meduim text-gray-900 px-6 py-6">
-                                            Libellé
+                                            Statut
                                         </th>
                                         <th class="text-sm font-meduim text-gray-900 px-6 py-6">
-                                            Libellé
+                                            Action
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @forelse ($schoolyears as $item)
+                                        
                                     <tr class="border-b-2 border-gray-40">
-                                        <th class="text-sm font-meduim text-gray-900 px-6 py-6">
-                                            contenue Libellé
-                                        </th>
-                                        <th class="text-sm font-meduim text-gray-900 px-6 py-6">
-                                            contenue Libellé
-                                        </th>
-                                        <th class="text-sm font-meduim text-gray-900 px-6 py-6">
-                                            contenue Libellé
-                                        </th>
-                                        <th class="text-sm font-meduim text-gray-900 px-6 py-6">
-                                            contenue Libellé
-                                        </th>
+                                        <td class="text-sm font-meduim text-gray-900 px-6 py-6">
+                                            {{$item->id - 6}} 
+                                        </td>
+                                        <td class="text-sm font-meduim text-gray-900 px-6 py-6">
+                                            {{$item->school_year}}
+                                        </td>
+                                        <td class="text-sm font-meduim text-gray-900 px-6 py-6">
+                                            @if ($item->Active >= 1)
+                                                <span class="p-2 text-sm bg-green-400 text-white rounded-sm">actif  </span>
+                                            @else
+                                                <span class="p-2 text-sm bg-red-400 text-white rounded-sm">inactif</span>
+                                            @endif
+                                        </td>
+                                        <td class="text-sm font-meduim text-gray-900 px-6 py-6">
+                                            @if ($item->Active >= 1)
+                                                <span class="p-3  bg-red-400 text-white rounded-sm">rendre inactif</span>
+                                            @else
+                                                <span class="p-3 bg-green-400 text-white rounded-sm">rendre actif</span>
+                                            @endif
+                                        </td>
                                     </tr>
-                                    <tr class="border-b-2 border-gray-40">
-                                        <th class="text-sm font-meduim text-gray-900 px-6 py-6">
-                                            contenue Libellé
-                                        </th>
-                                        <th class="text-sm font-meduim text-gray-900 px-6 py-6">
-                                            contenue Libellé
-                                        </th>
-                                        <th class="text-sm font-meduim text-gray-900 px-6 py-6">
-                                            contenue Libellé
-                                        </th>
-                                        <th class="text-sm font-meduim text-gray-900 px-6 py-6">
-                                            contenue Libellé
-                                        </th>
-                                    </tr>
+                                        @empty
+                                        <tr >
+                                            <td colspan="4" class="bg-red-300">
+
+                                                <div class=" pt-9 grid justify-center">
+                                                    <img src="{{ asset('empty.svg')}} " alt="" class="bg-red-300 w-40 h-40">
+                                                    {{-- Aucun élements trouvée --}}
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                    @endforelse
+                                   
                                 </tbody>
                             </table>
+
+                            <div class="mt-3">
+
+                                {{$schoolyears->links()}}
+
+                            </div>
+
                         </div>
                     </div>
                 </div>
