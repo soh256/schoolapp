@@ -56,22 +56,28 @@
                                             @endif
                                         </td>
                                         <td class="text-sm font-meduim text-gray-900 px-6 py-6">
-                                            @if ($item->Active >= 1)
-                                                <span class="p-3  bg-red-400 text-white rounded-sm">rendre inactif</span>
+                                            
+                                                <button class="p-3 {{$item->Active==1?'bg-red-400':'bg-green-400'}}  text-white rounded-sm" 
+                                                    wire:click="ChangeStatut({{$item->id}},{{$item->Active}})">
+                                                    {{$item->Active==1?'rendre inactif':'rendre actif'}}
+                                                </button>
+                                            {{-- @if ($item->Active >= 1)
                                             @else
                                                 <span class="p-3 bg-green-400 text-white rounded-sm">rendre actif</span>
-                                            @endif
+                                            @endif --}}
                                         </td>
                                     </tr>
                                         @empty
                                         <tr >
-                                            <td colspan="4" class="bg-red-300">
+                                            <td colspan="4" class="bg-orange-50">
 
-                                                <div class=" pt-9 grid justify-center">
-                                                    <img src="{{ asset('empty.svg')}} " alt="" class="bg-red-300 w-40 h-40">
-                                                    {{-- Aucun élements trouvée --}}
+                                                <div class=" pt-7 grid justify-center">
+                                                    <img src="{{ asset('empty.svg')}} " alt="" class="w-40 h-40">
+                                                    {{--  --}}
                                                 </div>
-
+                                                <div class="p-2">
+                                                    Aucun élement trouvé
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforelse

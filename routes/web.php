@@ -28,10 +28,11 @@ Route::middleware([
     })->name('dashboard');
     Route::prefix('Niveau')->group(function (){
         route::get('/' , 'App\Http\Controllers\NiveauController@index')->name('niveau');
+        route::get('/create_niveaux' , 'App\Http\Controllers\LevelController@create_level')->name('create_niveau');
     });
     Route::prefix('settings')->group(function (){
         route::get('/' , 'App\Http\Controllers\SchoolYearController@index')->name('settings');
-        route::get('/create_school_year' , 'App\Http\Controllers\SchoolYearController@create_school_year')->name('create_school_year');
+        route::get('/create_school_year' , 'App\Http\Controllers\SchoolYearController@create_school_year')->name('create_school_year');    
     });
-
+    
 });

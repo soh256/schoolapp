@@ -10,7 +10,17 @@ class Settings extends Component
 {
     use WithPagination;
     public $recherche ='';
-
+    public function ChangeStatut($id,$statut){
+        $sql = SchoolYears::where('Active','1')->update(['Active'=>'0']);
+        if ($statut) {
+            $sql2 = SchoolYears::where('id', $id)->update(['Active'=>'0']);
+            $this->render();
+        } else {
+            $sql2 = SchoolYears::where('id', $id)->update(['Active'=>'1']);
+            $this->render();    
+        }
+        
+    }
     public function render()
     {
         if (!empty($this->recherche)) {
