@@ -10,21 +10,29 @@ use App\Models\SchoolYears;
 class ListeNiveaux extends Component
 { 
     use WithPagination;
-    public $recherche ='';
+    public $recherche = '';
+    public $yearsA ;
+
     public function render()
     {
-            if (!empty($this->recherche)) {
+        $yearsA = SchoolYears::where('Active', '1')->first();
+        
+            if (!empty($this->recherche)  && !is_null($yearsA)) {
 
-                $yearsActive = SchoolYears::where('Active', '1')->first();
+                $levels = level::where('Libelle','like','%'.$this->recherche.'%')->orwhere('Code','like','%'.$this->recherche.'%')->where('School_year_id', $yearsA->id )->paginate(10);
+            
+            }else {
+
+                if (!is_null($yearsA)) {
+
+                    $levels = level::where('School_year_id', $yearsA->id)->paginate(10);
+
+                } else {
+
+                    $levels = [];
+
+                } 
                 
-                    $levels = level::where('Libelle','like','%'.$this->recherche.'%'
-                    )->orwhere('Code','like','%'.$this->recherche.'%'
-                    )->orwhere('School_year_id', $yearsActive->id 
-                    )->paginate(10);
-                
-            } else {
-                $yearsActive = SchoolYears::where('Active', '1')->first();
-                $levels = level::where('School_year_id', $yearsActive->id )->paginate(10);
             }
 
             return view('livewire.liste-niveaux', compact('levels'));

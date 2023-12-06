@@ -7,7 +7,7 @@
                     <input type="text" class="block mt-1 rounded-md border-gray-300 w-full" placeholder="Rechercher..." wire:model='recherche'>
                 </div>
                 <div>
-                    <a href="{{route('create_school_year')}}" class="bg-blue-500 rounded-md p-2 text-sm text-white">nouvelle année scolaire</a>
+                    <a href="{{route('create_school_year')}}" class="bg-blue-500 rounded-md p-3 text-sm text-white">nouvelle année scolaire</a>
                 </div>
             </div>
 

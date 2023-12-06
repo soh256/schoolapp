@@ -4,10 +4,10 @@
 
           <div class="flex justify-between">
               <div>
-                  <input type="text" class="block mt-1 rounded-md border-gray-300 w-full" placeholder="Rechercher..." wire:model='recherche'>
+                  <input type="text" class="block mt-1 rounded-md border-gray-300 w-full" placeholder="Rechercher..." wire:model="recherche">
               </div>
               <div>
-                  <a href="{{route('create_niveau')}}" class="bg-blue-500 rounded-md p-2 text-sm text-white">nouveau niveau</a>
+                  <a href="{{route('create_niveau')}}" class="bg-blue-500 rounded-md p-3 text-sm text-white">nouveau niveau</a>
               </div>
           </div>
 
@@ -88,8 +88,14 @@
                           </table>
 
                           <div class="mt-3">
-
-                              {{$levels->links()}}
+                            @if (is_array($levels))
+                                <div class="block p-2 bg-orange-500 text-lg text-white opacity-75 text-center rounded-sm shadow-sm mt-2 animate-bounce">
+                                    Aucune année scolaire n'a été selectionné
+                                </div>
+                            @else
+                                {{$levels->links()}}
+                            @endif
+                              
 
                           </div>
 
