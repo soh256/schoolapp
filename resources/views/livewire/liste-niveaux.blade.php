@@ -59,10 +59,8 @@
                                       </td>
                                       <td class="text-sm font-meduim text-gray-900 px-6 py-6">
                                           
-                                              <button class="p-3 {{$item->Active==1?'bg-red-400':'bg-green-400'}}  text-white rounded-sm" 
-                                                  wire:click="ChangeStatut({{$item->id}},{{$item->Active}})">
-                                                  {{$item->Active==1?'rendre inactif':'rendre actif'}}
-                                              </button>
+                                              <a href="{{route('modifier_niveau', $item->id)}}" class="text-sm bg-blue-500 p-2 text-white rounded-sm"> Modifier</a>
+                                              <a href="#" class="text-sm bg-red-500 p-2 text-white rounded-sm"> Supprimer</a>
                                           {{-- @if ($item->Active >= 1)
                                           @else
                                               <span class="p-3 bg-green-400 text-white rounded-sm">rendre actif</span>

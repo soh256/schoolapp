@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\level;
+
 
 
 /*
@@ -29,6 +31,7 @@ Route::middleware([
     Route::prefix('Niveau')->group(function (){
         route::get('/' , 'App\Http\Controllers\NiveauController@index')->name('niveau');
         route::get('/create_niveaux' , 'App\Http\Controllers\LevelController@create_level')->name('create_niveau');
+        route::get('/Modifier_niveau/{level}' , 'App\Http\Controllers\LevelController@modif_level')->name('modifier_niveau');
     });
     Route::prefix('settings')->group(function (){
         route::get('/' , 'App\Http\Controllers\SchoolYearController@index')->name('settings');
