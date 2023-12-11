@@ -17,6 +17,11 @@
                       {{Session::get('success')}}
                   </div>
               @endif
+              @if (Session::get('attention'))
+                  <div class="block p-2 bg-orange-500 text-white opacity-75  rounded-sm shadow-sm mt-2 animate-bounce">
+                      {{Session::get('attention')}}
+                  </div>
+              @endif
 
               <div class="overflow-x-auto ">
                   <div class="py-4 inline-block min-w-full ">
@@ -57,10 +62,18 @@
                                       <td class="text-sm font-meduim text-gray-900 px-6 py-6">
                                         {{$item->Scolarité}}
                                       </td>
-                                      <td class="text-sm font-meduim text-gray-900 px-6 py-6">
+                                      <td class="text-sm font-meduim text-gray-900 px-6 py-6 items-center">
                                           
-                                              <a href="{{route('modifier_niveau', $item->id)}}" class="text-sm bg-blue-500 p-2 text-white rounded-sm"> Modifier</a>
-                                              <a href="#" class="text-sm bg-red-500 p-2 text-white rounded-sm"> Supprimer</a>
+                                            <div class="flex justify-around">
+
+                                                <button class="text-sm bg-blue-500 p-2 text-white rounded-sm"> 
+                                                    <a href="{{route('modifier_niveau', ['level' => $item])}}" > Modifier</a>
+                                                </button>
+                                               
+                                                <button wire:click='delete({{$item}})' class="text-sm bg-red-500 p-2 text-white rounded-sm">Supprimer</button>
+
+                                            </div>    
+
                                           {{-- @if ($item->Active >= 1)
                                           @else
                                               <span class="p-3 bg-green-400 text-white rounded-sm">rendre actif</span>

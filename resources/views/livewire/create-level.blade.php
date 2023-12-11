@@ -69,13 +69,13 @@
         
                 @error('Scolarité')
                     <div class='text-red mx-5 py-1'>
-                        *le montant de la scolarité du niveau est obligatoire
+                        *le montant de la scolarité du niveau est obligatoire et doit être un entier
                     </div>
                 @enderror
 
             </div>
             
-        <div class="p-5 flex justify-between  items-center">
+        <div class="p-5 flex justify-around  items-center">
             <button class="bg-red-600 p-3 rounded-sm text-white text-sm ">Annuler</button>
             <button type="submit" class="bg-green-600 p-3 rounded-sm text-white text-sm ">Ajouter</button>
 

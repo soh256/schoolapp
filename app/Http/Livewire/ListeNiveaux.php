@@ -12,7 +12,11 @@ class ListeNiveaux extends Component
     use WithPagination;
     public $recherche = '';
     public $yearsA ;
-
+    
+    public function delete(level $level){
+        $level->delete();
+        return redirect()->route('niveau')->with('attention','le niveau à bien été supprimer');
+    }
     public function render()
     {
         $yearsA = SchoolYears::where('Active', '1')->first();

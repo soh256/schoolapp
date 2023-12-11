@@ -1,5 +1,5 @@
 <div class="p-3 bg-while shadow-sm">
-    <form action="POST" wire:submit.prevent='editlevel'>
+    <form action="POST" wire:submit.prevent='edit'>
         @csrf
         @method('post')
         @if (Session::get('erreur'))
@@ -75,9 +75,9 @@
 
             </div>
             
-        <div class="p-5 flex justify-between  items-center">
-            <button class="bg-red-600 p-3 rounded-sm text-white text-sm ">Annuler</button>
-            <button type="submit" class="bg-green-600 p-3 rounded-sm text-white text-sm ">Ajouter</button>
+        <div class="p-5 flex justify-around  items-center">
+            <button wire:click="back()" class="bg-red-600 p-3 rounded-sm text-white text-sm ">Annuler</button>
+            <button type="submit" class="bg-green-600 p-3 rounded-sm text-white text-sm ">Modifier</button>
 
         </div>
     </form>

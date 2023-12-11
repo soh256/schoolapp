@@ -18,7 +18,7 @@ class CreateLevel extends Component
         $this->validate([
             'code'=>'String|required',
             'libelle'=>'String|required',
-            'Scolarité'=>'String|required'
+            'Scolarité'=>'int|required'
         ]);
 
         try{
@@ -40,7 +40,7 @@ class CreateLevel extends Component
             }
             
         }catch(Exception $e){
-            return redirect()->back()->with('success','l\'année scolaire à été ajouté avec success');
+            return redirect()->back()->with('erreur','l\'année scolaire n\'à pas été ajouté ');
         }
     }
     public function render()
