@@ -22,11 +22,6 @@ class Editlevel extends Component
     }
     
     public function mount(){
-        $this->subscribe('cance   l', function () {
-            
-            return redirect()->back();
-          });
-        
         $this->code = $this->level->Code;
         $this->libelle = $this->level->Libelle;
         $this->Scolarité = $this->level->Scolarité;

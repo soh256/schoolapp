@@ -33,6 +33,11 @@ Route::middleware([
         route::get('/create_niveaux' , 'App\Http\Controllers\LevelController@create_level')->name('create_niveau');
         route::get('/Modifier_niveau/{level}' , 'App\Http\Controllers\LevelController@modif_level')->name('modifier_niveau');
     });
+    Route::prefix('classe')->group(function (){
+        route::get('/' , 'App\Http\Controllers\ClasseController@index')->name('classe');
+        route::get('/create_classe' , 'App\Http\Controllers\ClasseController@create_classe')->name('create_classe');
+        // route::get('/Modifier_niveau/{level}' , 'App\Http\Controllers\LevelController@modif_level')->name('modifier_niveau');
+    });
     Route::prefix('settings')->group(function (){
         route::get('/' , 'App\Http\Controllers\SchoolYearController@index')->name('settings');
         route::get('/create_school_year' , 'App\Http\Controllers\SchoolYearController@create_school_year')->name('create_school_year');    

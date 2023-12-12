@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\level;
-use App\Models\SchoolYears;
+use App\Models\SchoolYears; 
 
 class ListeNiveaux extends Component
 { 
