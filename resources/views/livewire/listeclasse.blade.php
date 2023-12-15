@@ -35,6 +35,9 @@
                                         <th class="text-sm font-meduim text-gray-900 px-6 py-6">
                                             Libelle
                                         </th>
+                                        <th class="text-sm font-meduim text-gray-900 px-6 py-6">
+                                            Niveau
+                                        </th>
                                       <th class="text-sm font-meduim text-gray-900 px-6 py-6">
                                         Action
                                     </th>
@@ -48,7 +51,11 @@
                                             {{$item->id}} 
                                         </td>
                                         <td class="text-sm font-meduim text-gray-900 px-6 py-6">
-                                            {{$item->libelle}}
+                                            {{$item->libelle }}
+                                        </td>
+                                        <td class="text-sm font-meduim text-gray-900 px-6 py-6">
+                                            {{$this->getniveau($item->level_id) }}
+                     
                                         </td>
 
                                         <td class="text-sm font-meduim text-gray-900 px-6 py-6 items-center">
@@ -107,4 +114,3 @@
         </div>
     </div>
   </div>
-  
