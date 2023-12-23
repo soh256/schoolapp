@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Classe;
 
 class ClasseController extends Controller
 {
@@ -15,5 +16,10 @@ class ClasseController extends Controller
 
         return view ('classes.index');
 
+    }
+    public function Modif_classe(Classe $classe){
+        
+        return view ('classes.editclasse', compact('classe'));
+        
     }
 }

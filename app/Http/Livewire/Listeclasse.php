@@ -26,10 +26,7 @@ class Listeclasse extends Component
 
     }
     public function render()
-    {
-        
-        
-        
+    {   
         if (!empty($this->recherche)  ) {
 
             $classe = classe::where('Libelle','like','%'.$this->recherche.'%')

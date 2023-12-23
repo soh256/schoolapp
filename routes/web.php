@@ -36,7 +36,7 @@ Route::middleware([
     Route::prefix('classe')->group(function (){
         route::get('/' , 'App\Http\Controllers\ClasseController@index')->name('classe');
         route::get('/create_classe' , 'App\Http\Controllers\ClasseController@create_classe')->name('create_classe');
-        // route::get('/Modifier_niveau/{level}' , 'App\Http\Controllers\LevelController@modif_level')->name('modifier_niveau');
+        route::get('/Modifier_la_classe/{classe}' , 'App\Http\Controllers\ClasseController@modif_classe')->name('modifier_classe');
     });
     Route::prefix('settings')->group(function (){
         route::get('/' , 'App\Http\Controllers\SchoolYearController@index')->name('settings');

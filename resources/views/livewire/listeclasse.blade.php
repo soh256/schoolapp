@@ -63,7 +63,7 @@
                                               <div class="flex justify-around">
   
                                                   <button class="text-sm bg-blue-500 p-2 text-white rounded-sm"> 
-                                                      <a href="{{route('classe', ['classe' => $item])}}" > Modifier</a>
+                                                      <a href="{{route('modifier_classe', ['classe' => $item])}}" > Modifier</a>
                                                   </button>
                                                  
                                                   <button wire:click='delete({{$item}})' class="text-sm bg-red-500 p-2 text-white rounded-sm">Supprimer</button>
